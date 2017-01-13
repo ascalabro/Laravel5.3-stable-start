@@ -1,9 +1,20 @@
 
 // Fonts
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+@import url(https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic);
+
+//@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
 // Variables
 @import "variables";
 
+$fa_path: "node_modules/font-awesome/scss";
+@import "node_modules/font-awesome/scss/variables.scss";
+@import "node_modules/font-awesome/scss/mixins.scss";
+@import "node_modules/font-awesome/scss/path.scss";
+@import "node_modules/font-awesome/scss/core.scss";
+@import "node_modules/font-awesome/scss/icons.scss";
+
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+@import "custom";

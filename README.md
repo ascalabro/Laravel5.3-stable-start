@@ -13,7 +13,7 @@ The following data will be fetched and rendered in the native and web applicatio
 
 ### Web Server Requirements
 
-The production server is Ubuntu 16.04 and will use PHP 7, but PHP 5.6.25 should work as well.
+The production server is Ubuntu 16.04 and will use PHP 7, but PHP 5.6.25 should work as well(Laravel 5.3 requires PHP 5.6 or greater)
 
 To install PHP 7 on Ubuntu, I ran these commands:
 
@@ -28,17 +28,21 @@ Install the PHP 7 PDO driver:
 
 A MySQL server must also be running somewhere, it can be local or remote. You will point the website and API to it later.
 
-### Setting up environment
+## Setting up project environment
 
-Clone the git repository(access to Bitbucket required) to get started:
+The repository lives in [Bitbucket](https://bitbucket.org/). You must be granted access to the [repo](https://bitbucket.org/ascalabro/standard-promo) before cloning is possible.
+
+Clone the git repository to get started:
 
 `git clone https://ascalabro@bitbucket.org/ascalabro/standard-promo.git`
 
-The website and API are using [Laravel 5.3](https://laravel.com/docs/5.3). The `web` directory contains all code for the public-facing website and API.
+The public-facing website and API are using [Laravel 5.3](https://laravel.com/docs/5.3). The `web` directory contains all of this code.
 
 The `native` directory contains all code for the native apps(Android, iOS, Windows).
 
-#### Web ####
+### Web ####
+
+#### Backend setup (required)
 After cloning the repo, you must install the PHP dependencies. We use the wonderful package manager composer.
 
 If you do not have composer, see https://getcomposer.org/download/ to install:
@@ -49,7 +53,7 @@ Run the following command to install all PHP dependencies:
 
 This will install all dependencies to the `/web/vendor` folder.
 
-Next, add a new virtual host for the website, and set the web root to the `/web/public/` directory.
+Next, add a new virtual host for the website, and set the web root to the `/full/path/to/standard-promo/web/public/` directory.
 
 The following Apache VirtualHost configuration works for me:
       
@@ -57,13 +61,16 @@ The following Apache VirtualHost configuration works for me:
 DocumentRoot "/full/path/to/standard-promo/web/public"
 ServerName dev.standard-promo
 <Directory "/full/path/to/standard-promo/web/public">
-  allow from all
-  Options None
-  Require all granted
+    allow from all
+    AllowOverride All
+    Require all granted
 </Directory>
+ErrorLog ${APACHE_LOG_DIR}/standard-promo-error.log
+CustomLog ${APACHE_LOG_DIR}/standard-promo-access.log combined
+
 ```
 
-Next, you must edit the `.env` file, specifically the db credentials section, to match your MySQL database credentials. The base database for the app is called `standard_promo` in production.
+Next, you must edit the `.env` file, specifically the db credentials section, to match your MySQL database credentials. The default database for the app is called `standard_promo`.
 
 After making sure the credentials are correct and the database has been created, run the app migrations by utilizing [Laravel artisan](https://laravel.com/docs/5.3/artisan): 
 
@@ -76,12 +83,45 @@ $ php artisan serve --host 0.0.0.0
 Laravel development server started on http://0.0.0.0:8000/
 ```
 
-Now, type the url into a browser exchanging `0.0.0.0` with your vm's IP address.
+Now, type the above url into a browser exchanging `0.0.0.0` with your vm's IP address.
 
-##### Database configuration
+#### Front-end setup for development
 
-Web uses MySQL relational database. Native properties connect to the web API to get data.
+Use Laravel's Elixir API for Gulp tasks. See the [docs](https://laravel.com/docs/5.3/elixir)
 
-#### Native app ####
+Make sure Node.js and NPM are installed on your machine, as well as Gulp.
+
+Test for presence of node & npm  
+
+```
+$ node -v
+$ npm -v
+```
+
+Make sure [Gulp](http://gulpjs.com/) is installed. 
+
+`$ npm install --global gulp-cli`
+
+The default package.json file includes Elixir and the Webpack JavaScript module bundler. 
+Think of this like your `composer.json` file, except it defines Node dependencies instead of PHP. 
+You may install the dependencies it references by running:
+
+`$ npm install`
+
+If you are developing on a Windows system or you are running your VM on a Windows host system, you may need to run the npm install command with the --no-bin-links switch enabled:
+
+`# npm install --no-bin-links`
+
+We use Sass which is stored at `/web/resources/assets/sass`. This is compiled to `/web/public/css/`.
+
+Same goes for the js in `/web/resources/assets/js`.
+
+See the docs for [running Elixir](https://laravel.com/docs/5.3/elixir#running-elixir) for working with front-end assets.
+
+#### Database configuration
+
+Web uses MySQL relational database. Native apps will connect to the web API to get data.
+
+### Native app ####
 
 TODO: Create documentation for setting up native app dev environment
