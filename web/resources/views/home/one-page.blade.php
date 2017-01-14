@@ -9,8 +9,15 @@
 
             <div class="row">
                 <div class="col-lg-12">
+                    <div class="vid-bg">
+                        <video loop muted autoplay poster="../img/Browsing/Snapshots/Browsing.jpg" class="fullscreen-bg__video">
+                            <source src="../img/Browsing/WEBM/Browsing.web" type="video/webm">
+                            <source src="../img/Browsing/MP4/Browsing.mp4" type="video/mp4">
+                            {{--<source src="video/big_buck_bunny.ogv" type="video/ogg">--}}
+                        </video>
+                    </div>
                     <div class="intro-message">
-                        <h1>Landing Page</h1>
+                        <h1>Are you in?</h1>
                         <h3>A Template by Start Bootstrap</h3>
                         <hr class="intro-divider">
                         <ul class="list-inline intro-social-buttons">
@@ -107,20 +114,17 @@
 
         <div class="container">
 
-            <div class="row">
+            <div class="row well">
                 <div class="col-lg-6">
-                    <h2>Connect to Start Bootstrap:</h2>
+                    <h2>Download the app</h2>
                 </div>
                 <div class="col-lg-6">
                     <ul class="list-inline banner-social-buttons">
                         <li>
-                            <a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
+                            <a href="https://twitter.com/SBootstrap"><img src="/img/cta-google-play-badge.svg"></a>
                         </li>
                         <li>
-                            <a href="https://github.com/IronSummitMedia/startbootstrap" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
-                        </li>
-                        <li>
-                            <a href="#" class="btn btn-default btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Linkedin</span></a>
+                            <a href="https://twitter.com/SBootstrap"><img src="/img/cta-app-store-badge.svg"></a>
                         </li>
                     </ul>
                 </div>
