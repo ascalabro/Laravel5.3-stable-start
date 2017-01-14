@@ -28,6 +28,11 @@ Install the PHP 7 PDO driver:
 
 `sudo apt-get install php7.0-mysql`
 
+You may have to also install mbstring and zip
+
+`sudo apt-get install php7.0-mbstring`
+`sudo apt-get install php7.0-zip`
+
 A MySQL server must also be running somewhere, it can be local or remote. You will point the website and API to it later.
 
 ## Setting up project environment
