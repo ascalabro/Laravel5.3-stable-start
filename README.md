@@ -11,6 +11,8 @@ The following data will be fetched and rendered in the native and web applicatio
 * Check order status - [Order Status 1.0.0 documentation](http://promostandards.org/service/view/1/)
 * Product data - [Product Data 1.0.0 documentation](http://promostandards.org/service/view/7/)
 
+The test/staging website is hosted on AWS and can be found at this domain: [http://standard-promo.toast.ninja/](http://standard-promo.toast.ninja/)
+
 ### Web Server Requirements
 
 The production server is Ubuntu 16.04 and will use PHP 7, but PHP 5.6.25 should work as well(Laravel 5.3 requires PHP 5.6 or greater)
@@ -40,7 +42,56 @@ The public-facing website and API are using [Laravel 5.3](https://laravel.com/do
 
 The `native` directory contains all code for the native apps(Android, iOS, Windows).
 
-### Web ####
+### Server ###
+
+#### Database configuration
+
+Web uses [MariaDB](https://mariadb.org/download/) relational database. Native apps will connect to the web API to get data.
+
+##### Install MariaDB 
+
+`apt-get -y install mariadb-server mariadb-client`
+
+##### Install phpmyadmin(optional)
+
+`apt-get -y install phpmyadmin`
+
+#### Web server configuration
+##### Apache:
+
+`apt-get -y install apache2`
+
+##### PHP7
+
+`apt-get -y install php7.0 libapache2-mod-php7.0`
+
+Restart Apache
+
+`systemctl restart apache2`
+
+Install cool stuff for PHP 7
+
+`apt-get -y install php7.0-mysql php7.0-curl php7.0-gd php7.0-intl php-pear php-imagick php7.0-imap php7.0-mcrypt php-memcache  php7.0-pspell php7.0-recode php7.0-sqlite3 php7.0-tidy php7.0-xmlrpc php7.0-xsl php7.0-mbstring php-gettext`
+
+Might need these
+
+`apt-get install curl php-cli php-mbstring git unzip`
+
+### Installing Composer in Ubuntu 16.04 with PHP7 already installed
+`cd ~`
+`curl -sS https://getcomposer.org/installer -o composer-setup.php`
+
+Next, run a short PHP script to verify that the installer matches the SHA-384 hash for the latest installer found on the [Composer Public Keys / Signatures page](https://composer.github.io/pubkeys.html). You will need to make sure that you substitute the latest hash for the highlighted value below
+
+`php -r "if (hash_file('SHA384', 'composer-setup.php') === '55d6ead61b29c7bdee5cccfb50076874187bd9f21f65d8991d46ec5cc90518f447387fb9f76ebae1fbbacf329e583e30') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"`
+
+Install composer globally:
+
+`sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer`
+
+
+
+### Website setup ####
 
 #### Backend setup (required)
 After cloning the repo, you must install the PHP dependencies. We use the wonderful package manager composer.
@@ -117,10 +168,6 @@ We use Sass which is stored at `/web/resources/assets/sass`. This is compiled to
 Same goes for the js in `/web/resources/assets/js`.
 
 See the docs for [running Elixir](https://laravel.com/docs/5.3/elixir#running-elixir) for working with front-end assets.
-
-#### Database configuration
-
-Web uses MySQL relational database. Native apps will connect to the web API to get data.
 
 ### Native app ####
 

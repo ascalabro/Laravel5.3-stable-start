@@ -47,7 +47,7 @@
                         <a href="#services">Services</a>
                     </li>
                     <li>
-                        <a href="#contact">Contact</a>
+                        <a href="#download">Download</a>
                     </li>
                 </ul>
                 <!-- Right Side Of Navbar -->
@@ -106,7 +106,7 @@
                             </li>
                             <li class="footer-menu-divider">&sdot;</li>
                             <li>
-                                <a href="#contact">Contact</a>
+                                <a href="#download">Download</a>
                             </li>
                         </ul>
                         <p class="copyright text-muted small">Copyright &copy; Your Company 2014. All Rights Reserved</p>

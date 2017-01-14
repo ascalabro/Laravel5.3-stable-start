@@ -6,7 +6,6 @@
     <a name="about"></a>
     <div class="intro-header">
         <div class="container">
-
             <div class="row">
                 <div class="col-lg-12">
                     <div class="vid-bg">
@@ -34,10 +33,8 @@
                     </div>
                 </div>
             </div>
-
         </div>
         <!-- /.container -->
-
     </div>
     <!-- /.intro-header -->
 
@@ -45,7 +42,6 @@
 
     <a  name="services"></a>
     <div class="content-section-a">
-
         <div class="container">
             <div class="row">
                 <div class="col-lg-5 col-sm-6">
@@ -58,17 +54,13 @@
                     <img class="img-responsive" src="img/ipad.png" alt="">
                 </div>
             </div>
-
         </div>
         <!-- /.container -->
-
     </div>
     <!-- /.content-section-a -->
 
     <div class="content-section-b">
-
         <div class="container">
-
             <div class="row">
                 <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
                     <hr class="section-heading-spacer">
@@ -80,17 +72,13 @@
                     <img class="img-responsive" src="img/dog.png" alt="">
                 </div>
             </div>
-
         </div>
         <!-- /.container -->
-
     </div>
     <!-- /.content-section-b -->
 
     <div class="content-section-a">
-
         <div class="container">
-
             <div class="row">
                 <div class="col-lg-5 col-sm-6">
                     <hr class="section-heading-spacer">
@@ -102,18 +90,14 @@
                     <img class="img-responsive" src="img/phones.png" alt="">
                 </div>
             </div>
-
         </div>
         <!-- /.container -->
-
     </div>
     <!-- /.content-section-a -->
 
-    <a  name="contact"></a>
+    <a name="download"></a>
     <div class="banner">
-
         <div class="container">
-
             <div class="row well">
                 <div class="col-lg-6">
                     <h2>Download the app</h2>
@@ -129,10 +113,8 @@
                     </ul>
                 </div>
             </div>
-
         </div>
         <!-- /.container -->
-
     </div>
     <!-- /.banner -->
 
