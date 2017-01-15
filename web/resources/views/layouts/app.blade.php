@@ -15,9 +15,9 @@
 
     <!-- Scripts -->
     <script>
-        window.Laravel = <?php echo json_encode([
+        window.Laravel = <?=json_encode([
             'csrfToken' => csrf_token(),
-        ]); ?>
+        ])?>
     </script>
 </head>
 <body>
@@ -47,15 +47,15 @@
                         <a href="#services">Services</a>
                     </li>
                     <li>
-                        <a href="#download">Download</a>
+                        {{ link_to('download', 'Download') }}
                     </li>
                 </ul>
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
                     @if (Auth::guest())
-                        <li><a href="{{ url('/login') }}">Login</a></li>
-                        <li><a href="{{ url('/register') }}">Register</a></li>
+                        <li>{{ link_to('login', 'Login') }}</li>
+                        <li>{{ link_to('register', 'Register') }}</li>
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -64,12 +64,7 @@
 
                             <ul class="dropdown-menu" role="menu">
                                 <li>
-                                    <a href="{{ url('/logout') }}"
-                                        onclick="event.preventDefault();
-                                                 document.getElementById('logout-form').submit();">
-                                        Logout
-                                    </a>
-
+                                    {{ link_to('logout', 'Logout', ['onclick' => 'event.preventDefault(); document.getElementById("logout-form").submit();']) }}
                                     <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
                                         {{ csrf_field() }}
                                     </form>
@@ -91,7 +86,7 @@
         <footer>
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-lg-5">
                         <ul class="list-inline">
                             <li>
                                 <a href="#">Home</a>
@@ -106,11 +101,26 @@
                             </li>
                             <li class="footer-menu-divider">&sdot;</li>
                             <li>
-                                <a href="#download">Download</a>
+                                <a href="/download">Download</a>
                             </li>
                         </ul>
-                        <p class="copyright text-muted small">Copyright &copy; Your Company 2014. All Rights Reserved</p>
                     </div>
+                    <div class="col-lg-6">
+                        <ul class="pull-right list-inline intro-social-buttons">
+                            <li>
+                                <a href="https://twitter.com/SBootstrap" class="btn btn-default btn-sm"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twotter</span></a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/IronSummitMedia/startbootstrap" class="btn btn-default btn-sm"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
+                            </li>
+                            <li>
+                                <a href="#" class="btn btn-default btn-sm"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Linkedin</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <p class="copyright text-muted small">Copyright &copy; Standard Promo <?=date('Y')?> All Rights Reserved</p>
                 </div>
             </div>
         </footer>

@@ -20,6 +20,9 @@ h6 {
   font-size: 14px;
   margin-bottom: 0;
 }
+.navbar-right {
+  margin-right: 0;
+}
 .spacer {
   width: 100%;
   height: 57px;
@@ -76,7 +79,7 @@ h6 {
   font-size: 5em;
 }
 
-.intro-divider {
+.divider-md {
   width: 400px;
   border-top: 1px solid #f8f8f8;
   border-bottom: 1px solid rgba(0,0,0,0.2);
@@ -86,7 +89,7 @@ h6 {
   text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
 }
 
-@media(max-width:767px) {
+@media(max-width: $screen-md-max) {
   .intro-message {
     padding-bottom: 15%;
   }
@@ -105,7 +108,7 @@ h6 {
     margin-bottom: 0;
   }
 
-  .intro-divider {
+  .divider-md {
     width: 100%;
   }
 }
@@ -197,4 +200,32 @@ p.copyright {
 .banner .well {
   color: invert($well-bg); //#2b2121;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
+}
+
+.btn {
+  color: inherit;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  cursor: pointer;
+  display: inline-block;
+  padding: 1rem 3rem;
+  outline: none;
+  position: relative;
+  text-align: center;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.btn-action {
+  color: white;
+  padding: 0.7rem 5rem;
+  font-size: 21px;
+}
+
+.download-cta {
+  @media (max-width: $screen-sm-max) {
+    padding-bottom: 10em;
+  }
+  padding: 2em 1em 5em 1em;
+  background-color: rgba(105, 107, 119, 0.65);
 }
